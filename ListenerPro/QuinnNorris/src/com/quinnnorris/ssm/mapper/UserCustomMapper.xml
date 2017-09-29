@@ -15,15 +15,19 @@
     </insert>
 
     <update id="updateUserHeadp" parameterType="UserCustom">
-        UPDATE user SET headp = #{headp}
+        UPDATE user SET headp = #{headp} WHERE phone = #{phone}
     </update>
 
     <update id="updateUserUsername" parameterType="UserCustom">
-        UPDATE user SET username = #{username}
+        UPDATE user SET username = #{username} WHERE phone = #{phone}
     </update>
 
     <update id="updateUserUsertype" parameterType="UserCustom">
-        UPDATE user SET usertype = #{usertype}
+        UPDATE user SET usertype = #{usertype} WHERE phone = #{phone}
+    </update>
+
+    <update id="updateUserPW" parameterType="UserCustom">
+        UPDATE user SET password = #{password} WHERE phone = #{phone}
     </update>
 
 </mapper>

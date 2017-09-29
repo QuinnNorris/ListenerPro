@@ -43,5 +43,14 @@ public class HeadpUtil {
         return fileStr;
     }
 
+    /**
+     * 随机给用户分配十个默认头像中的一个
+     *
+     * @return 返回十个随机头像中的一个，可被jsp引用的路径
+     */
+    public static String randomHeadp() {
+        int randomNumber = ((int) Math.random() * 10);
+        return "../res/head/index" + randomNumber + ".jpg";
+    }
 
 }

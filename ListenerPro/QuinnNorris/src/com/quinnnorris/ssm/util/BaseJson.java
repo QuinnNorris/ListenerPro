@@ -15,6 +15,9 @@ public class BaseJson {
     private Object object;
     private Object beanObject;
 
+    public BaseJson() {
+    }
+
     public BaseJson(Object object) {
         this.object = object;
     }

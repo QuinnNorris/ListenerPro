@@ -25,4 +25,17 @@ public class SessionUtil {
             httpSession.removeAttribute(attributeNames.nextElement());
     }
 
+
+    /**
+     * 向session中填充信息
+     *
+     * @param httpSession 浏览器中的session
+     * @param phone       被填充的phone信息
+     * @param usertype    被填充的usertype信息
+     */
+    public static void setSessionPhoneType(HttpSession httpSession, String phone, int usertype) {
+        httpSession.setAttribute("phone", phone);
+        httpSession.setAttribute("usertype", usertype);
+    }
+
 }
