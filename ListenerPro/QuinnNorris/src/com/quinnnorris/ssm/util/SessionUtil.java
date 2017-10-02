@@ -25,7 +25,6 @@ public class SessionUtil {
             httpSession.removeAttribute(attributeNames.nextElement());
     }
 
-
     /**
      * 向session中填充信息
      *
@@ -33,9 +32,39 @@ public class SessionUtil {
      * @param phone       被填充的phone信息
      * @param usertype    被填充的usertype信息
      */
-    public static void setSessionPhoneType(HttpSession httpSession, String phone, int usertype) {
+    public static void setSessionPhoneType(HttpSession httpSession, String phone, int usertype, String headp, String username) {
         httpSession.setAttribute("phone", phone);
+        httpSession.setAttribute("headp", headp);
         httpSession.setAttribute("usertype", usertype);
+        httpSession.setAttribute("username", username);
+    }
+
+    /**
+     * 如果session中传入参数的属性中有空值或不存在则返回true，否则返回false
+     *
+     * @param httpSession 浏览器中session
+     * @param strings     传入的所有需要判断的参数
+     * @return 返回判断结果
+     */
+    public static boolean sessionHasNull(HttpSession httpSession, String... strings) {
+        String[] strs = new String[strings.length];
+        for (int i = 0; i < strings.length; i++)
+            strs[i] = (String) httpSession.getAttribute(strings[i]);
+        return SessionUtil.paramHasNull(strs);
+    }
+
+    /**
+     * 如果参数中有空值或不存在则返回true，否则返回false
+     *
+     * @param strings 传入参数列表
+     * @return 返回判断结果
+     */
+    public static boolean paramHasNull(Object... strings) {
+        boolean hasNull = false;
+        for (Object str : strings)
+            if (str == null || str.equals(""))
+                hasNull = true;
+        return hasNull;
     }
 
 }

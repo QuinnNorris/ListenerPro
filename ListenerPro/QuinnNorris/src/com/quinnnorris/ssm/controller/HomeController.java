@@ -1,5 +1,6 @@
 package com.quinnnorris.ssm.controller;
 
+import com.quinnnorris.ssm.util.SessionUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,8 +30,10 @@ public class HomeController {
      */
     @RequestMapping(value = "/homePage/{phone}")
     public String homePage(@PathVariable String phone, Model model, HttpSession httpSession) {
-        if (!((String) (httpSession.getAttribute("phone"))).equals(phone))
+        if (SessionUtil.sessionHasNull(httpSession, "phone")
+                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
+        //model
         return "homePage";
     }
 

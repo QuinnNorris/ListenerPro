@@ -50,7 +50,7 @@ public class HeadpUtil {
      */
     public static String randomHeadp() {
         int randomNumber = ((int) Math.random() * 10);
-        return "../res/head/index" + randomNumber + ".jpg";
+        return "../res/head/userheadp" + (randomNumber+1) + ".jpg";
     }
 
 }

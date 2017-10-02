@@ -3,6 +3,7 @@ package com.quinnnorris.ssm.controller;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.service.impl.RegLogServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
+import com.quinnnorris.ssm.util.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,11 @@ public class RegisterController {
     @Autowired
     RegLogServiceImpl regLogService;
 
+    /**
+     * 跳转至注册界面
+     *
+     * @return 返回跳转的页面
+     */
     @RequestMapping("/RegisterUser")
     public String registerUser() {
         return "Register";
@@ -43,6 +49,7 @@ public class RegisterController {
     @RequestMapping(value = "/RegisterPhonePW", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson registerPhonePW(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
+        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);

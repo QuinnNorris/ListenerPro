@@ -49,7 +49,8 @@ public class RegLogServiceImpl implements RegLogService {
             userCustomMapper.insertUserReturnId(userCustom);
             baseJson.setErrorCode("0001");
             baseJson.setBeanObject(userCustom);
-            SessionUtil.setSessionPhoneType(httpSession, userCustom.getPhone(), userCustom.getUsertype());
+            SessionUtil.setSessionPhoneType(httpSession, userCustom.getPhone(),
+                    userCustom.getUsertype(), userCustom.getHeadp(), userCustom.getUsername());
         }
         return baseJson;
     }
@@ -60,7 +61,7 @@ public class RegLogServiceImpl implements RegLogService {
      *
      * @param userCustom  需要填充phone与password字段
      * @param httpSession 浏览器session
-     * @return 返回baseJson，如果用户被注册返回1001，否则注册用户并填充userCustom并返回0001
+     * @return 返回baseJson，如果查找到该用户则返回0001成功并配置session，否则返回1001
      */
     @Override
     public BaseJson findUserByLogin(UserCustom userCustom, HttpSession httpSession) {
@@ -69,7 +70,8 @@ public class RegLogServiceImpl implements RegLogService {
         if (userRes != null) {
             baseJson.setErrorCode("0001");
             baseJson.setBeanObject(userRes);
-            SessionUtil.setSessionPhoneType(httpSession, userRes.getPhone(), userRes.getUsertype());
+            SessionUtil.setSessionPhoneType(httpSession, userRes.getPhone(),
+                    userRes.getUsertype(), userRes.getHeadp(), userRes.getUsername());
         } else
             baseJson.setErrorCode("1001");
         return baseJson;
@@ -91,7 +93,8 @@ public class RegLogServiceImpl implements RegLogService {
             userCustomMapper.updateUserPW(userCustom);
             baseJson.setErrorCode("0001");
             baseJson.setBeanObject(userRes);
-            SessionUtil.setSessionPhoneType(httpSession, userRes.getPhone(), userRes.getUsertype());
+            SessionUtil.setSessionPhoneType(httpSession, userRes.getPhone(),
+                    userRes.getUsertype(), userRes.getHeadp(), userRes.getUsername());
         } else
             baseJson.setErrorCode("1001");
         return baseJson;

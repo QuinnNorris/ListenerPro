@@ -3,6 +3,7 @@ package com.quinnnorris.ssm.controller;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.service.impl.RegLogServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
+import com.quinnnorris.ssm.util.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,16 @@ public class LoginController {
     RegLogServiceImpl regLogService;
 
     /**
+     * 跳转到登陆页面
+     *
+     * @return 返回Login视图
+     */
+    @RequestMapping("/LoginUser")
+    public String loginUser() {
+        return "Login";
+    }
+
+    /**
      * 通过手机号码和密码登陆请求
      * 登陆成功后将信息填充进入session
      *
@@ -39,6 +50,7 @@ public class LoginController {
     @RequestMapping(value = "/LoginPhonePW", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson loginPhonePW(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
+        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);
@@ -57,6 +69,7 @@ public class LoginController {
     @RequestMapping(value = "/ForgetPassword", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson forgetPassword(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
+        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);

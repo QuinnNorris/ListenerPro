@@ -66,4 +66,11 @@ public interface UserCustomMapper {
      * @param userCustom 需要password，phone字段
      */
     public void updateUserPW(UserCustom userCustom);
+
+    /**
+     * 添加了user表中的email信息
+     *
+     * @param userCustom 需要email，phone字段
+     */
+    public void insertUserEmail(UserCustom userCustom);
 }

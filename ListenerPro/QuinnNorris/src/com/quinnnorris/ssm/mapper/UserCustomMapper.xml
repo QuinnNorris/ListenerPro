@@ -30,4 +30,8 @@
         UPDATE user SET password = #{password} WHERE phone = #{phone}
     </update>
 
+    <update id="insertUserEmail" parameterType="UserCustom">
+        UPDATE user SET email = #{email} WHERE phone = #{phone}
+    </update>
+
 </mapper>

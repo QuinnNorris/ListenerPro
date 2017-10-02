@@ -21,4 +21,5 @@ public interface RegLogService {
     public BaseJson findUserByLogin(UserCustom userCustom, HttpSession httpSession);
 
     public BaseJson forgetUpdatePW(UserCustom userCustom, HttpSession httpSession);
+
 }

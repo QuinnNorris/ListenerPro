@@ -20,7 +20,7 @@ public class User {
     private String headp;
     private Date regtime;
     private int usertype;
-    private Date lastlogtime;
+    private String email;
 
     public int getId() {
         return id;
@@ -78,11 +78,11 @@ public class User {
         this.usertype = usertype;
     }
 
-    public Date getLastlogtime() {
-        return lastlogtime;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLastlogtime(Date lastlogtime) {
-        this.lastlogtime = lastlogtime;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
