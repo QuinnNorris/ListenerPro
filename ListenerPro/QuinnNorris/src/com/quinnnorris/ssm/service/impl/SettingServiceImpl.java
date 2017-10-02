@@ -1,13 +1,15 @@
 package com.quinnnorris.ssm.service.impl;
 
+import com.quinnnorris.ssm.bean.CertCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
+import com.quinnnorris.ssm.mapper.CertCustomMapper;
 import com.quinnnorris.ssm.mapper.UserCustomMapper;
 import com.quinnnorris.ssm.service.SettingService;
-import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 /**
  * Title: SettingServiceImpl
@@ -23,6 +25,9 @@ public class SettingServiceImpl implements SettingService {
 
     @Autowired
     UserCustomMapper userCustomMapper;
+
+    @Autowired
+    CertCustomMapper certCustomMapper;
 
     /**
      * 更新用户头像并重写session
@@ -61,6 +66,22 @@ public class SettingServiceImpl implements SettingService {
     @Override
     public void updateUserPW(UserCustom userCustom) {
         userCustomMapper.updateUserPW(userCustom);
+    }
+
+    /**
+     * 通过所有的数据在证书信息表中插入一条记录
+     *
+     * @param certCustom  关于表中所有信息
+     * @param httpSession 服务器session
+     */
+    @Override
+    public void insertCertUser(CertCustom certCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        certCustom.setUploadTime(new Date());
+        certCustom.setIsVerification("0");
+        certCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        certCustomMapper.insertCert(certCustom);
     }
 
 }

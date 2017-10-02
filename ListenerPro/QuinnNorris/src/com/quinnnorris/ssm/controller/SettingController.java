@@ -1,7 +1,7 @@
 package com.quinnnorris.ssm.controller;
 
+import com.quinnnorris.ssm.bean.CertCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
-import com.quinnnorris.ssm.service.impl.RegLogServiceImpl;
 import com.quinnnorris.ssm.service.impl.SettingServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
 import com.quinnnorris.ssm.util.EmailSend;
@@ -9,6 +9,7 @@ import com.quinnnorris.ssm.util.HeadpUtil;
 import com.quinnnorris.ssm.util.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,6 +29,23 @@ public class SettingController {
 
     @Autowired
     SettingServiceImpl settingService;
+
+    /**
+     * 访问个人中心，只有每个用户本人才能访问到自己的个人中心
+     *
+     * @param phone       获取url中请求的用户资源信息
+     * @param model       封装数据并绘制下一个页面
+     * @param httpSession 浏览器session信息
+     * @return 如果访问他人个人中心返回404，访问自己个人中心则跳转
+     */
+    @RequestMapping(value = "/homePage/{phone}")
+    public String homePage(@PathVariable String phone, Model model, HttpSession httpSession) {
+        if (SessionUtil.sessionHasNull(httpSession, "phone")
+                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
+            return "404";
+        //model
+        return "homePage";
+    }
 
     /**
      * 更新用户头像，将用户头像根据时间命名，并存储在服务器项目中
@@ -128,4 +146,35 @@ public class SettingController {
         settingService.updateUserPW(userCustom);
         return new BaseJson("0001");
     }
+
+    /**
+     * 用户注册专家资格
+     *
+     * @param certphoto   用户上传证书照片
+     * @param name        用户真实姓名
+     * @param certID      证件编号
+     * @param cardID      身份证编号
+     * @param level       证书等级（二级，三级）
+     * @param httpSession 服务器sessino
+     * @return 返回结果BaseJson
+     */
+    @RequestMapping(value = "/InsertCertUser", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseJson insertCertUser(@RequestParam MultipartFile certphoto, @RequestParam String name, @RequestParam String certID,
+                                   @RequestParam String cardID, @RequestParam String level, HttpSession httpSession) {
+        if (SessionUtil.paramHasNull(certphoto, name, certID, cardID, level)) return new BaseJson("404");
+        String headPath = "/Users/quinn_norris/Desktop/GITHUB/Listener/ListenerPro/QuinnNorris/web/res/certificate";
+        String fileStr = HeadpUtil.insertHeadp(certphoto, headPath);
+        CertCustom certCustom = new CertCustom();
+        certCustom.setCardID(cardID);
+        certCustom.setCertID(certID);
+        certCustom.setName(name);
+        certCustom.setCertphoto(fileStr);
+        certCustom.setLevel(level);
+        settingService.insertCertUser(certCustom, httpSession);
+        return new BaseJson("0001");
+    }
+
+
+
 }
