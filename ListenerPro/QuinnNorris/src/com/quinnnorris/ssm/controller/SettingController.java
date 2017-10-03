@@ -31,23 +31,6 @@ public class SettingController {
     SettingServiceImpl settingService;
 
     /**
-     * 访问个人中心，只有每个用户本人才能访问到自己的个人中心
-     *
-     * @param phone       获取url中请求的用户资源信息
-     * @param model       封装数据并绘制下一个页面
-     * @param httpSession 浏览器session信息
-     * @return 如果访问他人个人中心返回404，访问自己个人中心则跳转
-     */
-    @RequestMapping(value = "/homePage/{phone}")
-    public String homePage(@PathVariable String phone, Model model, HttpSession httpSession) {
-        if (SessionUtil.sessionHasNull(httpSession, "phone")
-                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
-            return "404";
-        //model
-        return "homePage";
-    }
-
-    /**
      * 更新用户头像，将用户头像根据时间命名，并存储在服务器项目中
      *
      * @param headFile    用户头像文件

@@ -1,6 +1,7 @@
 package com.quinnnorris.ssm.service;
 
 import com.quinnnorris.ssm.bean.CertCustom;
+import com.quinnnorris.ssm.bean.CompUsingCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.util.BaseJson;
 
@@ -26,4 +27,6 @@ public interface SettingService {
     public void updateUserPW(UserCustom userCustom);
 
     public void insertCertUser(CertCustom certCustom, HttpSession httpSession);
+
+    public BaseJson changeComponentUsingType(CompUsingCustom compUsingCustom, HttpSession httpSession);
 }
