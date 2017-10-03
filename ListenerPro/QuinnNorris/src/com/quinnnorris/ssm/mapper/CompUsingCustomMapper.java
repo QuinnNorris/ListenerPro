@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Title: CompUsingCustomMapper
- * Description:
+ * Description: 关于映射comp_using表的所有数据操作
  * Company: www.QuinnNorris.com
  *
  * @date: 2017/10/3 上午9:09 星期二

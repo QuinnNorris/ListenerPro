@@ -2,9 +2,11 @@ package com.quinnnorris.ssm.service.impl;
 
 import com.quinnnorris.ssm.bean.CertCustom;
 import com.quinnnorris.ssm.bean.CompUsingCustom;
+import com.quinnnorris.ssm.bean.ComponentCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.mapper.CertCustomMapper;
 import com.quinnnorris.ssm.mapper.CompUsingCustomMapper;
+import com.quinnnorris.ssm.mapper.ComponentCustomMapper;
 import com.quinnnorris.ssm.mapper.UserCustomMapper;
 import com.quinnnorris.ssm.service.SettingService;
 import com.quinnnorris.ssm.util.BaseJson;
@@ -34,6 +36,9 @@ public class SettingServiceImpl implements SettingService {
 
     @Autowired
     CompUsingCustomMapper compUsingCustomMapper;
+
+    @Autowired
+    ComponentCustomMapper componentCustomMapper;
 
     /**
      * 更新用户头像并重写session
@@ -110,6 +115,37 @@ public class SettingServiceImpl implements SettingService {
         compUsingCustomMapper.updateWithIdAndCom_id(compUsingCustom);
         baseJson.setBeanObject(compUsingCustom);
         return baseJson;
+    }
+
+    /**
+     * 添加新的组件到数据库中，先不做存在查询
+     *
+     * @param componentCustom 填充所有数据
+     * @param httpSession     服务器session
+     */
+    @Override
+    public BaseJson addNewComponent(ComponentCustom componentCustom, HttpSession httpSession) {
+        BaseJson baseJson = new BaseJson();
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        componentCustom.setCreate_id(userCustomMapper.selectUserByPhone(userCustom).getId());
+        ComponentCustom componentCustom1 = componentCustomMapper.insertComponent(componentCustom);
+        baseJson.setBeanObject(componentCustom1);
+        return baseJson;
+    }
+
+    /**
+     * 在comp_using表中添加新的映射关系
+     *
+     * @param compUsingCustom 添加所有字段
+     * @param httpSession     服务器session
+     */
+    @Override
+    public void addNewCompMapping(CompUsingCustom compUsingCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        compUsingCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        compUsingCustomMapper.insertWithIdAndCom_id(compUsingCustom);
     }
 
 }

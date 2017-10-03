@@ -1,12 +1,14 @@
 package com.quinnnorris.ssm.controller;
 
 import com.quinnnorris.ssm.bean.CompUsingCustom;
+import com.quinnnorris.ssm.bean.ComponentCustom;
 import com.quinnnorris.ssm.service.impl.SettingServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
 import com.quinnnorris.ssm.util.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -47,6 +49,39 @@ public class ComponentController {
         return baseJson;
     }
 
-    
+    /**
+     * 创建并添加新的组件到数据库中，并立即启用该组件
+     *
+     * @param com_type    组件的类型
+     * @param com_name    组件的名称
+     * @param innertest   组件内部的文字
+     * @param length      如果组件类型为1，则存放该组件的长度
+     * @param color       组件背景颜色
+     * @param httpSession 服务器session
+     * @return 返回404访问错误或0001当访问成功，并将componentCusotm对象传入
+     */
+    @RequestMapping(value = "/homePage/AddNewComp", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseJson addNewComponent(@RequestParam String com_type, @RequestParam String com_name,
+                                    @RequestParam String innertest, @RequestParam String length,
+                                    @RequestParam String color, HttpSession httpSession) {
+        if (SessionUtil.paramHasNull(com_type, com_name, innertest, color)) return new BaseJson("404");
+        ComponentCustom componentCustom = new ComponentCustom();
+        componentCustom.setCom_type(Integer.parseInt(com_type));
+        componentCustom.setCom_name(com_name);
+        componentCustom.setInnertest(innertest);
+        componentCustom.setColor(color);
+        if (com_type.equals("1"))
+            componentCustom.setLength(Integer.parseInt(length));
+        BaseJson baseJson = settingService.addNewComponent(componentCustom, httpSession);
+
+        CompUsingCustom compUsingCustom = new CompUsingCustom();
+        compUsingCustom.setUse_type(1);
+        compUsingCustom.setCom_id(((ComponentCustom) (baseJson.getBeanObject())).getCom_id());
+        settingService.addNewCompMapping(compUsingCustom, httpSession);
+        baseJson.setErrorCode("0001");
+        return baseJson;
+    }
+
 
 }

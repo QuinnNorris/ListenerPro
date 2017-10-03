@@ -2,6 +2,7 @@ package com.quinnnorris.ssm.service;
 
 import com.quinnnorris.ssm.bean.CertCustom;
 import com.quinnnorris.ssm.bean.CompUsingCustom;
+import com.quinnnorris.ssm.bean.ComponentCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.util.BaseJson;
 
@@ -29,4 +30,8 @@ public interface SettingService {
     public void insertCertUser(CertCustom certCustom, HttpSession httpSession);
 
     public BaseJson changeComponentUsingType(CompUsingCustom compUsingCustom, HttpSession httpSession);
+
+    public BaseJson addNewComponent(ComponentCustom componentCustom, HttpSession httpSession);
+
+    public void addNewCompMapping(CompUsingCustom compUsingCustom, HttpSession httpSession);
 }
