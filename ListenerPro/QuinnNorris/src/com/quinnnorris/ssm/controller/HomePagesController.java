@@ -3,6 +3,7 @@ package com.quinnnorris.ssm.controller;
 import com.quinnnorris.ssm.util.SessionUtil;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +57,7 @@ public class HomePagesController {
     }
 
     /**
-     * 访问个人中心下的二级页面ComponentSetting基本设置页面
+     * 访问个人中心下的二级页面ComponentSetting组件设置页面
      *
      * @param phone       获取url中请求的用户资源信息
      * @param model       封装数据并绘制下一个页面
@@ -72,6 +73,21 @@ public class HomePagesController {
         return "HomeComponentSetting";
     }
 
-
+    /**
+     * 访问个人中心下的二级页面LabelSetting标签管理页面
+     *
+     * @param phone       获取url中请求的用户资源信息
+     * @param model       封装数据并绘制下一个页面
+     * @param httpSession 服务器session
+     * @return 如果访问非自己个人中心返回404，访问自己个人中心LabelSetting则跳转
+     */
+    @RequestMapping("/homePage/{phone}/labelSetting")
+    public String homePageLabelSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
+        if (SessionUtil.sessionHasNull(httpSession, "phone")
+                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
+            return "404";
+        //model
+        return "labelSetting";
+    }
 
 }

@@ -1,13 +1,7 @@
 package com.quinnnorris.ssm.service.impl;
 
-import com.quinnnorris.ssm.bean.CertCustom;
-import com.quinnnorris.ssm.bean.CompUsingCustom;
-import com.quinnnorris.ssm.bean.ComponentCustom;
-import com.quinnnorris.ssm.bean.UserCustom;
-import com.quinnnorris.ssm.mapper.CertCustomMapper;
-import com.quinnnorris.ssm.mapper.CompUsingCustomMapper;
-import com.quinnnorris.ssm.mapper.ComponentCustomMapper;
-import com.quinnnorris.ssm.mapper.UserCustomMapper;
+import com.quinnnorris.ssm.bean.*;
+import com.quinnnorris.ssm.mapper.*;
 import com.quinnnorris.ssm.service.SettingService;
 import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +33,12 @@ public class SettingServiceImpl implements SettingService {
 
     @Autowired
     ComponentCustomMapper componentCustomMapper;
+
+    @Autowired
+    WorkCustomMapper workCustomMapper;
+
+    @Autowired
+    LabelCustomMapper labelCustomMapper;
 
     /**
      * 更新用户头像并重写session
@@ -147,5 +147,70 @@ public class SettingServiceImpl implements SettingService {
         compUsingCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
         compUsingCustomMapper.insertWithIdAndCom_id(compUsingCustom);
     }
+
+    /**
+     * 在label表中添加相关用户的个人标签信息
+     *
+     * @param labelCustom 关于标签的一部分字段
+     * @param httpSession 服务器session
+     */
+    @Override
+    public void insertselfLabel(LabelCustom labelCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        labelCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        WorkCustom workCustom = new WorkCustom();
+        workCustom.setWork_id(labelCustom.getWork_id());
+        labelCustom.setWork_id(workCustomMapper.selectWorkerById(workCustom).getWork_id());
+        LabelCustom custom = labelCustomMapper.selectLabelById(labelCustom);
+        if (custom == null) labelCustomMapper.insertSelfLabel(labelCustom);
+        else labelCustomMapper.updateSelfLabel(labelCustom);
+    }
+
+    /**
+     * 在label表中添加关于自定义标签的部分信息
+     *
+     * @param labelCustom 填充关于自定义标签部分信息和id
+     * @param httpSession 服务器session
+     */
+    @Override
+    public void updateCustomLabel(LabelCustom labelCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        labelCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        labelCustomMapper.updateCustomLabel(labelCustom);
+    }
+
+    /**
+     * 在label表中添加关于寻找对象标签的部分信息
+     *
+     * @param labelCustom 填充关于寻找配对对象标签部分信息和id
+     * @param httpSession 服务器session
+     */
+    @Override
+    public void updateFindLabel(LabelCustom labelCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        labelCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        WorkCustom workCustom = new WorkCustom();
+        workCustom.setWork_id(labelCustom.getWork_id());
+        labelCustom.setWork_id(workCustomMapper.selectWorkerById(workCustom).getWork_id());
+        labelCustomMapper.updateFindLabel(labelCustom);
+    }
+
+    /**
+     * 在label表中更新评星信息
+     *
+     * @param labelCustom 填充stars和id
+     * @param httpSession 服务器session
+     */
+    @Override
+    public void updateStarsLabel(LabelCustom labelCustom, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone((String) httpSession.getAttribute("phone"));
+        labelCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
+        labelCustomMapper.updateStars(labelCustom);
+    }
+
 
 }

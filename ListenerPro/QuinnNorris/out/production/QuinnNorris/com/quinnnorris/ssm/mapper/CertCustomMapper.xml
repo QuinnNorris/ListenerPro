@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quinnnorris.ssm.mapper.CertCustomMapper">
+
+    <select id="selectCertById" parameterType="CertCustom" resultType="CertCustom">
+        SELECT * FROM certificate WHERE id = #{id}
+    </select>
+
+    <insert id="insertCert" parameterType="CertCustom">
+        INSERT INTO certificate (id,name,certphoto,certID,cardID,uploadTime,isVerification,level)
+        VALUE (#{id},#{name},#{certphoto},#{certID},#{cardID},#{uploadTime},#{isVerification},#{level})
+    </insert>
+
+    <update id="updateVerificationTime" parameterType="CertCustom">
+        UPDATE certificate SET verificationTime = #{verificationTime} WHERE id = #{id}
+    </update>
+
+    <update id="updateIsVerification" parameterType="CertCustom">
+        UPDATE certificate SET isVerification = #{isVerification} WHERE id = #{id}
+    </update>
+
+</mapper>

@@ -1,16 +1,13 @@
 package com.quinnnorris.ssm.service;
 
-import com.quinnnorris.ssm.bean.CertCustom;
-import com.quinnnorris.ssm.bean.CompUsingCustom;
-import com.quinnnorris.ssm.bean.ComponentCustom;
-import com.quinnnorris.ssm.bean.UserCustom;
+import com.quinnnorris.ssm.bean.*;
 import com.quinnnorris.ssm.util.BaseJson;
 
 import javax.servlet.http.HttpSession;
 
 /**
  * Title: SettingService
- * Description:
+ * Description: 关于描述设置的业务逻辑的接口
  * Company: www.QuinnNorris.com
  *
  * @date: 2017/10/2 下午3:50 星期一
@@ -34,4 +31,12 @@ public interface SettingService {
     public BaseJson addNewComponent(ComponentCustom componentCustom, HttpSession httpSession);
 
     public void addNewCompMapping(CompUsingCustom compUsingCustom, HttpSession httpSession);
+
+    public void insertselfLabel(LabelCustom labelCustom, HttpSession httpSession);
+
+    public void updateCustomLabel(LabelCustom labelCustom, HttpSession httpSession);
+
+    public void updateFindLabel(LabelCustom labelCustom, HttpSession httpSession);
+
+    public void updateStarsLabel(LabelCustom labelCustom, HttpSession httpSession);
 }
