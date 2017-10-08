@@ -87,7 +87,41 @@ public class HomePagesController {
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
         //model
-        return "labelSetting";
+        return "LabelSetting";
+    }
+
+    /**
+     * 访问个人中心下的二级页面ConsultSetting标签管理页面
+     *
+     * @param phone       获取url中请求的用户资源信息
+     * @param model       封装数据并绘制下一个页面
+     * @param httpSession 服务器session
+     * @return 如果访问非自己个人中心返回404，访问自己个人中心ConsultSetting则跳转
+     */
+    @RequestMapping("/homePage/{phone}/consultSetting")
+    public String homePageConsultSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
+        if (SessionUtil.sessionHasNull(httpSession, "phone")
+                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
+            return "404";
+        //model
+        return "ConsultSetting";
+    }
+
+    /**
+     * 访问个人中心下的二级页面TestSetting标签管理页面
+     *
+     * @param phone       获取url中请求的用户资源信息
+     * @param model       封装数据并绘制下一个页面
+     * @param httpSession 服务器session
+     * @return 如果访问非自己个人中心返回404，访问自己个人中心TestSetting则跳转
+     */
+    @RequestMapping("/homePage/{phone}/testSetting")
+    public String homePageTestSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
+        if (SessionUtil.sessionHasNull(httpSession, "phone")
+                || !((String) (httpSession.getAttribute("phone"))).equals(phone))
+            return "404";
+        //model
+        return "TestSetting";
     }
 
 }

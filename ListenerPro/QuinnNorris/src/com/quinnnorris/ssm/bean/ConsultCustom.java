@@ -10,4 +10,23 @@ package com.quinnnorris.ssm.bean;
  * @version: 1.0
  */
 public class ConsultCustom extends Consult {
+
+    private int startPos;
+    private int pageSize;
+
+    public int getStartPos() {
+        return startPos;
+    }
+
+    public void setStartPos(int startPos) {
+        this.startPos = startPos;
+    }
+
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 }

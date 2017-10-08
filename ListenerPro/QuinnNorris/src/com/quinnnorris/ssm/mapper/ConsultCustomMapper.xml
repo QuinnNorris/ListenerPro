@@ -7,11 +7,11 @@
     </select>
 
     <select id="selectConsultByUserId" parameterType="LabelCustom" resultType="LabelCustom">
-        SELECT * FROM label WHERE  = #{}
+        SELECT * FROM label WHERE  = #{} LIMIT #{startPos},#{pageSize}
     </select>
 
     <select id="selectConsultByExpertId" parameterType="LabelCustom" resultType="LabelCustom">
-        SELECT * FROM label WHERE  = #{}
+        SELECT * FROM label WHERE  = #{} LIMIT #{startPos},#{pageSize}
     </select>
 
 </mapper>
