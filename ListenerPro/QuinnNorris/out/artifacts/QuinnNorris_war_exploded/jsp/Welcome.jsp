@@ -1,11 +1,19 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: quinn_norris
+  Date: 2017/10/9
+  Time: 下午5:56
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Listener 倾听者</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../res/css/public.css">
     <link rel="stylesheet" type="text/css" href="../res/css/welcome.css">
-    <script type="text/javascript" src="../res/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../res/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../res/js/welcome.js"></script>
 </head>
 <body>

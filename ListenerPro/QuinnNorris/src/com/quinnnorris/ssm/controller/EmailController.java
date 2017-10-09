@@ -33,8 +33,8 @@ public class EmailController {
      * 向开发者邮箱发送一封邮件，并返回发送情况状态
      *
      * @param username 发送信件的用户名称
-     * @param phone 发送信件的手机号码
-     * @param emails 信件内容
+     * @param phone    发送信件的手机号码
+     * @param emails   信件内容
      * @return 返回0001，发送成功；返回1001，发送遇到问题
      */
     @RequestMapping(value = "/postEmail", method = RequestMethod.POST)
