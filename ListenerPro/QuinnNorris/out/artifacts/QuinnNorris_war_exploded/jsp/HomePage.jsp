@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../res/css/navBar.css">
     <link rel="stylesheet" type="text/css" href="../res/css/homePageBar.css">
     <link rel="stylesheet" type="text/css" href="../res/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/secNav.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/homeBaseSetting.css">
     <script type="text/javascript" src="../res/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../res/js/navBar.js"></script>
     <script type="text/javascript" src="../res/js/homePageBar.js"></script>
