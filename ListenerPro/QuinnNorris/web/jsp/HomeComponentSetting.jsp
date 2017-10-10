@@ -20,6 +20,26 @@
     <script type="text/javascript" src="../res/js/bootstrap.js"></script>
 </head>
 <body>
+<%--创建新组件的模态框--%>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">创建属于自己的新组件</h4>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success">保存并退出</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div class="leftBar">
     <jsp:include page="NavBar.jsp" flush="true"/>
@@ -35,19 +55,34 @@
     <div class="space"></div>
     <div class="secInner">
         <div class="thrInn">
-            <p>我的组件 (10个)</p>
-            <hr/>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <div class="compInn"></div>
-            <p>&nbsp;</p>
+            <div>
+                <p>我的组件 (12个)</p>
+                <hr/>
+            </div>
+            <div class="compsInn">
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+                <div class="compInn"><div class="using but"><p>启用</p></div><div class="stoping but"><p>停用</p></div><div class="delete but"><p>删除</p></div></div>
+            </div>
+        </div>
+        <div class="thrInn">
+            <div>
+                <p>创建组件</p>
+                <hr/>
+            </div>
+            <div class="spac">
+                <button type="button" class="btn btn-success btuCre" data-toggle="modal" data-target=".bs-example-modal-lg">单击此处，开始创建属于自己的组件</button>
+            </div>
+
         </div>
     </div>
 </div>
