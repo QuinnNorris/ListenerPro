@@ -49,11 +49,29 @@ public class RegisterController {
     @RequestMapping(value = "/RegisterPhonePW", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson registerPhonePW(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
-        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
+        if (SessionUtil.paramHasNull(phone, pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);
         return regLogService.findUserByRegister(userCustom, httpSession);
+    }
+
+    /**
+     * 用户发起忘记密码请求，修改密码
+     *
+     * @param phone       传入的手机
+     * @param pw          传入的密码
+     * @param httpSession 服务器session
+     * @return 返回bJ数据
+     */
+    @RequestMapping(value = "/ForgetPhonePW", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseJson forgetPhonePW(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone(phone);
+        userCustom.setPassword(pw);
+        if (SessionUtil.paramHasNull(phone, pw)) return new BaseJson("404");
+        return regLogService.forgetUpdatePW(userCustom, httpSession);
     }
 
 }

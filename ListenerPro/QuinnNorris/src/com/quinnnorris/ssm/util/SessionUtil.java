@@ -2,6 +2,8 @@ package com.quinnnorris.ssm.util;
 
 import javax.servlet.http.HttpSession;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Title: SessionUtil
@@ -65,6 +67,16 @@ public class SessionUtil {
             if (str == null || str.equals(""))
                 hasNull = true;
         return hasNull;
+    }
+
+    public static Map<String, String> getAllSession(HttpSession httpSession) {
+        Map<String, String> map = new HashMap<>();
+        Enumeration<String> attributeNames = httpSession.getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String attr = attributeNames.nextElement();
+            map.put(attr, (String) httpSession.getAttribute(attr));
+        }
+        return map;
     }
 
 }

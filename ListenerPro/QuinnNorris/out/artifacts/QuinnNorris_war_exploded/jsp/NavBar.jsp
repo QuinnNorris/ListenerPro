@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="middle">
     <div class="hidLeftMenu">
-        <img class="openMenu" src="../res/head/userheadp1.jpg"/>
+        <img class="openMenu" src="${pageContext.request.contextPath}/res/head/userheadp1.jpg"/>
         <p class="hidTitle"></p>
     </div>
     <div class="leftMenu">
         <div class="topMenu">
             <%--<img class="changeMenu" src="img/shouqicaidan.png" id="hidIcon"/>--%>
-            <img class="img-circle headpMenu" src="../res/head/userheadp1.jpg" id="headpMenu" height="150px" width="150px"/>
+            <img class="img-circle headpMenu" src="${pageContext.request.contextPath}/res/head/userheadp1.jpg" id="headpMenu" height="150px" width="150px"/>
             <p class="menuTitle"></p>
         </div>
         <div class="menu_list">
@@ -27,7 +27,7 @@
                         <p class="zcd" id="zcd3"><a href="#">治愈屋</a></p>
                         <p class="zcd" id="zcd4"><a href="#">飞鸟集</a></p>
                         <p class="zcd" id="zcd5"><a href="#">修补屋</a></p>
-                        <p class="zcd" id="zcd6"><a href="#">万事屋</a></p>
+                        <p class="zcd" id="zcd6"><a href="/homePage/baseSetting/<%=session.getAttribute("phone")%>">万事屋</a></p>
                         <p class="zcd" id="zcd7"><a href="#">马车邮箱</a></p>
                         <p class="zcd" id="zcd8"><a href="#">地球仪</a></p>
                     </div>
@@ -36,4 +36,3 @@
         </div>
     </div>
 </div>
-

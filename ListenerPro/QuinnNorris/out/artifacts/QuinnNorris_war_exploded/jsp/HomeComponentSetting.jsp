@@ -9,20 +9,20 @@
 <html>
 <head>
     <title>个人中心——组件管理</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/navBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homePageBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homeComponentSetting.css">
-    <script type="text/javascript" src="../res/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../res/js/navBar.js"></script>
-    <script type="text/javascript" src="../res/js/homePageBar.js"></script>
-    <script type="text/javascript" src="../res/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/navBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homePageBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homeComponentSetting.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/navBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/homePageBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
 
     <%--关于颜色选择器控件--%>
-    <script type="text/javascript" src="../res/js/colpick.js"></script>
-    <script type="text/javascript" src="../res/js/plugin.js"></script>
-    <link rel="stylesheet" href="../res/css/colpick.css" type="text/css"/>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/colpick.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/plugin.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/css/colpick.css" type="text/css"/>
 
 </head>
 <body>

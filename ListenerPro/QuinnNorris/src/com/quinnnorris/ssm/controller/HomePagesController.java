@@ -20,6 +20,7 @@ import javax.servlet.http.HttpSession;
  * @version: 1.0
  */
 @Controller
+@RequestMapping("/homePage")
 public class HomePagesController {
 
     /**
@@ -30,7 +31,7 @@ public class HomePagesController {
      * @param httpSession 浏览器session信息
      * @return 如果访问他人个人中心返回404，访问自己个人中心则跳转
      */
-    @RequestMapping("/homePage/{phone}")
+    @RequestMapping("")
     public String homePage(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
@@ -47,7 +48,7 @@ public class HomePagesController {
      * @param httpSession 服务器session
      * @return 如果访问非自己个人中心返回404，访问自己个人中心BaseSetting则跳转
      */
-    @RequestMapping("/homePage/{phone}/baseSetting")
+    @RequestMapping("/baseSetting/{phone}")
     public String homePageBaseSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
@@ -64,7 +65,7 @@ public class HomePagesController {
      * @param httpSession 服务器session
      * @return 如果访问非自己个人中心返回404，访问自己个人中心ComponentSetting则跳转
      */
-    @RequestMapping("/homePage/{phone}/componentSetting")
+    @RequestMapping("/componentSetting/{phone}")
     public String homePageComponentSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
@@ -81,13 +82,13 @@ public class HomePagesController {
      * @param httpSession 服务器session
      * @return 如果访问非自己个人中心返回404，访问自己个人中心LabelSetting则跳转
      */
-    @RequestMapping("/homePage/{phone}/labelSetting")
+    @RequestMapping("/labelSetting/{phone}")
     public String homePageLabelSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
         //model
-        return "LabelSetting";
+        return "HomeLabelSetting";
     }
 
     /**
@@ -98,13 +99,13 @@ public class HomePagesController {
      * @param httpSession 服务器session
      * @return 如果访问非自己个人中心返回404，访问自己个人中心ConsultSetting则跳转
      */
-    @RequestMapping("/homePage/{phone}/consultSetting")
+    @RequestMapping("/consultSetting/{phone}")
     public String homePageConsultSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
         //model
-        return "ConsultSetting";
+        return "HomeConsultSetting";
     }
 
     /**
@@ -115,13 +116,13 @@ public class HomePagesController {
      * @param httpSession 服务器session
      * @return 如果访问非自己个人中心返回404，访问自己个人中心TestSetting则跳转
      */
-    @RequestMapping("/homePage/{phone}/testSetting")
+    @RequestMapping("/testSetting/{phone}")
     public String homePageTestSetting(@PathVariable String phone, Model model, HttpSession httpSession) {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
         //model
-        return "TestSetting";
+        return "HomeTestSetting";
     }
 
 }

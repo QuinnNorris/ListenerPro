@@ -29,3 +29,31 @@
     color: #5db75d;
     text-decoration: none;
 }
+
+.ppt1 {
+    padding-top: 20px;
+}
+
+.help-blocks {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #737373;
+}
+
+.hidde {
+    height: 30px;
+}
+
+.forge {
+    height:25px;
+}
+
+.forg {
+    float: right;
+    cursor: pointer;
+}
+
+#myModal .modal-dialog {
+    width: 350px;
+    margin: 30px auto;
+}

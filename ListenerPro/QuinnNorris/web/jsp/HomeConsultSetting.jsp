@@ -9,15 +9,15 @@
 <html>
 <head>
     <title>个人中心——心理预约</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/navBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homePageBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homeConsultSetting.css">
-    <script type="text/javascript" src="../res/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../res/js/navBar.js"></script>
-    <script type="text/javascript" src="../res/js/homePageBar.js"></script>
-    <script type="text/javascript" src="../res/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/navBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homePageBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homeConsultSetting.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/navBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/homePageBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
 
 </head>
 <body>

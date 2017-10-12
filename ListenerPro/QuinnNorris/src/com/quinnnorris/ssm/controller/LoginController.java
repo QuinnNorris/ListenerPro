@@ -50,7 +50,7 @@ public class LoginController {
     @RequestMapping(value = "/LoginPhonePW", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson loginPhonePW(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
-        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
+        if (SessionUtil.paramHasNull(phone, pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);
@@ -69,11 +69,17 @@ public class LoginController {
     @RequestMapping(value = "/ForgetPassword", method = RequestMethod.POST)
     @ResponseBody
     public BaseJson forgetPassword(@RequestParam String phone, @RequestParam String pw, HttpSession httpSession) {
-        if(SessionUtil.paramHasNull(phone,pw)) return new BaseJson("404");
+        if (SessionUtil.paramHasNull(phone, pw)) return new BaseJson("404");
         UserCustom userCustom = new UserCustom();
         userCustom.setPhone(phone);
         userCustom.setPassword(pw);
         return regLogService.forgetUpdatePW(userCustom, httpSession);
+    }
+
+    @RequestMapping(value = "/getSession")
+    @ResponseBody
+    public BaseJson getnowSession(HttpSession httpSession) {
+        return new BaseJson(SessionUtil.getAllSession(httpSession));
     }
 
 }

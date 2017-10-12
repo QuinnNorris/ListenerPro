@@ -3,11 +3,11 @@
 <mapper namespace="com.quinnnorris.ssm.mapper.UserCustomMapper">
 
     <select id="selectUserByPhoneAndPW" parameterType="UserCustom" resultType="UserCustom">
-        SELECT * FROM user WHERE email = #{email} AND password = #{password}
+        SELECT * FROM user WHERE phone = #{phone} AND password = #{password}
     </select>
 
     <select id="selectUserByPhone" parameterType="UserCustom" resultType="UserCustom">
-        SELECT * FROM user WHERE email = #{email}
+        SELECT * FROM user WHERE phone = #{phone}
     </select>
 
     <insert id="insertUserReturnId" useGeneratedKeys="true" keyProperty="id" parameterType="UserCustom">

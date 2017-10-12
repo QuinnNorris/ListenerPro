@@ -9,21 +9,21 @@
 <html>
 <head>
     <title>个人中心——基本设置</title>
-    <link rel="stylesheet" type="text/css" href="../res/css/public.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/navBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homePageBar.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../res/css/homeBaseSetting.css">
-    <script type="text/javascript" src="../res/js/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../res/js/navBar.js"></script>
-    <script type="text/javascript" src="../res/js/homePageBar.js"></script>
-    <script type="text/javascript" src="../res/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/public.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/navBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homePageBar.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homeBaseSetting.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/navBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/homePageBar.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
 
     <%--头像控件所需外部链接文件--%>
-    <link href="../res/css/cropper.min.css" rel="stylesheet">
-    <link href="../res/css/sitelogo.css" rel="stylesheet">
-    <script type="text/javascript" src="../res/js/cropper.min.js"></script>
-    <script type="text/javascript" src="../res/js/sitelogo.js"></script>
+    <link href="${pageContext.request.contextPath}/res/css/cropper.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/res/css/sitelogo.css" rel="stylesheet">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/cropper.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/sitelogo.js"></script>
 
 </head>
 <body>
@@ -124,7 +124,7 @@
                     <div class="row">
                         <div id="crop-avatar" class="col-md-6">
                             <div class="avatar-view" title="Change Logo Picture">
-                                <img src="../res/head/userheadp1.jpg" alt="Logo">
+                                <img src="${pageContext.request.contextPath}/res/head/userheadp1.jpg" alt="Logo">
                             </div>
                         </div>
                     </div>
