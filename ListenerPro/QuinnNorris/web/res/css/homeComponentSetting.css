@@ -8,6 +8,58 @@
     left: 20.6%;
 }
 
+.leftBody {
+    position: relative;
+    margin: 13px;
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    height: 550px;
+}
+
+.showBroder {
+    position: relative;
+    width: 49%;
+    float: left;
+}
+
+.showRightBorder {
+    position: relative;
+    width: 49%;
+    float: right;
+}
+
+.compAdd {
+    padding-top: 20px;
+}
+
+.compAdd1 {
+    padding-top: 0px;
+}
+
+.compAdd2 {
+    padding-top: 60px;
+}
+
+.compAdd .inputting {
+    width: 119%;
+}
+
+.compAdd2 .inputting {
+    width: 119%;
+}
+
+.compInnINMod {
+    position: relative;
+    border: 1px solid #c0c0c0;
+    width: 227px;
+    margin-left: 22%;
+    margin-top: 40px;
+    height: 150px;
+}
+
 .main .firBar {
     position: relative;
     border-left: 1px solid #c0c0c0;
@@ -45,9 +97,20 @@
 }
 
 .main .secInner .thrInn .compsInn p {
+     text-align: center;
+     margin-top: 4px;
+     color: #ffffff;
+ }
+
+.main .secInner .thrInn .compsInn .toping {
     text-align: center;
-    margin-top: 8px;
-    color: #ffffff;
+    color: #000000;
+    padding-bottom: 2px;
+}
+
+.main .secInner .thrInn .compsInn .buttop {
+    cursor: pointer;
+    display: block;
 }
 
 .main .secInner .thrInn .compsInn .but {
@@ -60,11 +123,19 @@
     background-color: #3e8f3e;
 }
 
+.main .secInner .thrInn .compsInn .naming {
+    position: relative;
+    height: 19px;
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+
 .main .secInner .thrInn .compsInn .using {
     position: relative;
-    height: 40px;
+    height: 30px;
     width: 33%;
-    top: 149px;
+    top: 146px;
     border-top: 1px solid black;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -72,9 +143,9 @@
 
 .main .secInner .thrInn .compsInn .stoping {
     position: relative;
-    height: 40px;
+    height: 30px;
     width: 34%;
-    top: 109px;
+    top: 116px;
     left: 33%;
     border-top: 1px solid black;
     border-right: 1px solid black;
@@ -83,9 +154,9 @@
 
 .main .secInner .thrInn .compsInn .delete {
     position: relative;
-    height: 40px;
+    height: 30px;
     width: 33%;
-    top: 69px;
+    top: 86px;
     left: 67%;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -94,9 +165,9 @@
 .main .secInner .thrInn .compInn {
     position: relative;
     border: 1px solid black;
-    width: 22%;
+    width: 227px;
     margin: 10px;
-    height: 190px;
+    height: 200px;
     float: left;
 }
 
@@ -109,3 +180,4 @@
     left: 34%;
     position: relative;
 }
+

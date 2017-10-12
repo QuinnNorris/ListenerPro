@@ -1,0 +1,102 @@
+.leftBar {
+    position: fixed;
+}
+
+.main {
+    position: relative;
+    width: 76.9%;
+    left: 20.6%;
+}
+
+.main .firBar {
+    position: relative;
+    border-left: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.main .firBar .space {
+    height: 50px;
+}
+
+.main .firBar .secNav {
+    position: relative;
+}
+
+.main .firBar .buttom {
+    height: 10px;
+}
+
+.main .secInner {
+    border: 1px solid #c0c0c0;
+}
+
+.main .space {
+    height: 20px;
+}
+
+.main .secInner .thrInn {
+    padding-top: 40px;
+    padding-left: 70px;
+}
+
+.labels {
+    width: 100%;
+}
+
+.labeltitle {
+    height: 50px;
+    width: 4%;
+    position: relative;
+    margin-left: 50px;
+    display: inline-block;
+}
+
+.labeltitle p {
+    text-align: center;
+    margin-top: 13px;
+}
+
+.yourlabels {
+    border: 1px solid #000000;
+    height: 50px;
+    width: 12%;
+    position: relative;
+    margin-left: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.selflabels {
+    width: 100%;
+}
+
+.yourlabelself {
+    border: 1px solid #000000;
+    height: 50px;
+    width: 12%;
+    position: relative;
+    margin-left: 60px;
+    display: inline-block;
+}
+
+.yourlabelself p {
+    text-align: center;
+    margin-top: 13px;
+}
+
+
+.yourlabels p {
+    text-align: center;
+    margin-top: 13px;
+}
+
+.main .secInner .thrInn1 {
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-bottom: 60px;
+}
+
+.starts {
+    margin-left: 60px;
+}

@@ -5,26 +5,27 @@
     background-size: 100% 100%;
 }
 
-#register-info {
-    width: 400px;
-    height: 500px;
-    border: 1px double white;
-    left: 38%;
+.logreg {
+    width: 20%;
+    position: relative;
     top: 200px;
-    position: relative;
+    left: 40%;
+}
+
+.hei {
+    height:20px;
+}
+
+.ppt {
+    padding-top: 10px;
+}
+
+.logreg .nav-pills > li.active > a, .logreg .nav-pills > li.active > a:hover, .logreg .nav-pills > li.active > a:focus{
     color: #fff;
+    background-color: #5db75d;
 }
 
-.info-line {
-    border: 1px double white;
-    margin : 20px;
-    /*top: 20px;*/
-    position: relative;
-}
-
-.message-line {
-    font-size: 13px;
-    border: 1px double white;
-    margin : 20px;
-    position: relative;
+.logreg a {
+    color: #5db75d;
+    text-decoration: none;
 }
