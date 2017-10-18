@@ -40,8 +40,11 @@ public class SettingController {
     @ResponseBody
     public BaseJson updatUserHeadp(@RequestParam MultipartFile headFile, HttpSession httpSession) {
         if (SessionUtil.paramHasNull(headFile)) return new BaseJson("404");
+        if (headFile == null)
+            System.out.println("head");
         String headPath = "/Users/quinn_norris/Desktop/GITHUB/Listener/ListenerPro/QuinnNorris/web/res/head";
         String fileStr = HeadpUtil.insertHeadp(headFile, headPath);
+        System.out.println(fileStr);
         UserCustom userCustom = new UserCustom();
         userCustom.setHeadp(fileStr);
         userCustom.setPhone((String) (httpSession.getAttribute("phone")));

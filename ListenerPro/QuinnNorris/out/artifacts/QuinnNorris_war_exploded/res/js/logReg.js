@@ -41,7 +41,7 @@ function sign_login() {
     var phone = $("#logphone").val();
     $.ajax({
         url: '/LoginPhonePW',
-        type: 'get',
+        type: 'post',
         contentType: 'application/x-www-form-urlencoded',
         data: {
             phone: phone,

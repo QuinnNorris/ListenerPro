@@ -2,6 +2,7 @@ package com.quinnnorris.ssm.service;
 
 import com.quinnnorris.ssm.bean.*;
 import com.quinnnorris.ssm.util.BaseJson;
+import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,4 +40,6 @@ public interface SettingService {
     public void updateFindLabel(LabelCustom labelCustom, HttpSession httpSession);
 
     public void updateStarsLabel(LabelCustom labelCustom, HttpSession httpSession);
+
+    public void getUserInfo(String phone,Model model);
 }

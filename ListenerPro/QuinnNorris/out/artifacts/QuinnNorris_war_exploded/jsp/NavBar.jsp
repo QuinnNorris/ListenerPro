@@ -20,7 +20,7 @@
         <div class="menu_list">
             <ul>
                 <li class="lis">
-                    <p class="fuMenu">晚上好，QuinnNorris</p>
+                    <p class="fuMenu">晚上好，<%= session.getAttribute("username")%></p>
                     <div class="div1">
                         <p class="zcd" id="zcd1"><a href="#">秘密花园</a></p>
                         <p class="zcd" id="zcd2"><a href="#">倾听者</a></p>

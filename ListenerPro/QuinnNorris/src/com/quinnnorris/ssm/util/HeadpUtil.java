@@ -34,7 +34,7 @@ public class HeadpUtil {
                 String[] filetype = file.getContentType().split("/");
                 String fileName = DateUtil.continueDateFormat(new Date()) + "." + filetype[1];
                 File targetFile = new File(filePath, fileName);
-                fileStr = "../res/head/" + fileName;
+                fileStr = "/res/head/" + fileName;
                 file.transferTo(targetFile);
             } catch (Exception e) {
                 e.printStackTrace();

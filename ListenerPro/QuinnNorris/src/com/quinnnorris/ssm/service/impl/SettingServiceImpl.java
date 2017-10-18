@@ -6,6 +6,7 @@ import com.quinnnorris.ssm.service.SettingService;
 import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -210,6 +211,20 @@ public class SettingServiceImpl implements SettingService {
         userCustom.setPhone((String) httpSession.getAttribute("phone"));
         labelCustom.setId(userCustomMapper.selectUserByPhone(userCustom).getId());
         labelCustomMapper.updateStars(labelCustom);
+    }
+
+    @Override
+    public void getUserInfo(String phone, Model model) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setPhone(phone);
+        UserCustom custom = userCustomMapper.selectUserByPhone(userCustom);
+        model.addAttribute("username", custom.getUsername());
+        model.addAttribute("headp", custom.getHeadp());
+        model.addAttribute("usertype", custom.getUsertype());
+        if (custom.getEmail() == null || custom.getEmail().equals(""))
+            model.addAttribute("email", "无");
+        else
+            model.addAttribute("email", custom.getEmail());
     }
 
 

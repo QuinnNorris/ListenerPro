@@ -95,7 +95,7 @@ public class EmailSend {
                 "【倾听者Listener】", receiveMail, receivePhone, subjectMail, htmlMail);
         // 根据 Session 获取邮件传输对象
         Transport transport = session.getTransport();
-        transport.connect("sei_qnz2015@216.com", "Qnz13579");
+        transport.connect("sei_qnz2015@126.com", "Qnz13579");
         // 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
         transport.sendMessage(message, message.getAllRecipients());
         // 关闭连接

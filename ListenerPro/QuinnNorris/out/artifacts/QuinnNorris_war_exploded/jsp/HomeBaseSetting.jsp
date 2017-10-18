@@ -14,10 +14,13 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homePageBar.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/res/css/homeBaseSetting.css">
+
     <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/navBar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/homePageBar.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/bootstrap.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/homeBaseSetting.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/res/js/md5.js"></script>
 
     <%--头像控件所需外部链接文件--%>
     <link href="${pageContext.request.contextPath}/res/css/cropper.min.css" rel="stylesheet">
@@ -47,7 +50,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static">QuinnNorris</p>
+                        <p class="form-control-static">${username}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -55,12 +58,12 @@
                     <div class="col-sm-10">
                         <input id="username" name="username" type="test" class="form-control inputting"
                                placeholder="UserName">
-                        <span id="helpBlock2" class="help-block">该用户名中存在不可使用字符</span>
+                        <span id="helpBlockuser" class="help-block" hidden></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">确认修改</button>
+                        <button type="submit" class="btn btn-default" onclick="updateUsername()">确认修改</button>
                     </div>
                 </div>
             </div>
@@ -72,7 +75,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">当前绑定邮箱</label>
                     <div class="col-sm-10">
-                        <p class="form-control-static">无</p>
+                        <p class="form-control-static">${email}</p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -80,12 +83,12 @@
                     <div class="col-sm-10">
                         <input id="email" name="email" type="email" class="form-control inputting"
                                placeholder="Email">
-                        <span id="helpBlock2" class="help-block">该用户名中存在不可使用字符</span>
+                        <span id="helpBlockemail" class="help-block" hidden></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">发送邮件</button>
+                        <button type="submit" class="btn btn-default" onclick="updateEmail()">发送邮件</button>
                     </div>
                 </div>
             </div>
@@ -97,21 +100,21 @@
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">输入新密码</label>
                     <div class="col-sm-10">
-                        <input id="pw" name="pw" type="test" class="form-control inputting"
-                               placeholder="UserName">
+                        <input id="pw" name="pw" type="password" class="form-control inputting"
+                               placeholder="PassWord">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword" class="col-sm-2 control-label">重复密码</label>
                     <div class="col-sm-10">
-                        <input id="re_pw" name="re_pw" type="test" class="form-control inputting"
-                               placeholder="UserName">
-                        <span id="helpBlock2" class="help-block">该密码少于6位！</span>
+                        <input id="re_pw" name="re_pw" type="password" class="form-control inputting"
+                               placeholder="PassWord">
+                        <span id="helpBlockpw" class="help-block" hidden></span>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">修改密码</button>
+                        <button type="submit" class="btn btn-default" onclick="updatePW()">修改密码</button>
                     </div>
                 </div>
             </div>
@@ -124,7 +127,7 @@
                     <div class="row">
                         <div id="crop-avatar" class="col-md-6">
                             <div class="avatar-view" title="Change Logo Picture">
-                                <img src="${pageContext.request.contextPath}/res/head/userheadp1.jpg" alt="Logo">
+                                <img src="${pageContext.request.contextPath}${headp}" alt="head">
                             </div>
                         </div>
                     </div>
@@ -145,7 +148,7 @@
                                             <input class="avatar-src" name="avatar_src" type="hidden">
                                             <input class="avatar-data" name="avatar_data" type="hidden">
                                             <label for="avatarInput">图片上传</label>
-                                            <input class="avatar-input" id="avatarInput" name="avatar_file" type="file">
+                                            <input class="avatar-input" id="avatarInput" name="avatar_file" type="file" onchange="previewImage(this)">
                                         </div>
                                         <div class="row">
                                             <div class="col-md-9">
@@ -173,8 +176,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
-                                                <button class="btn btn-success btn-block avatar-save" type="submit"><i
-                                                        class="fa fa-save"></i> 保存修改
+                                                <button class="btn btn-success btn-block avatar-save" type="submit" onclick="updateHeadp()"><i
+                                                        class="fa fa-save" ></i> 保存修改
                                                 </button>
                                             </div>
                                         </div>

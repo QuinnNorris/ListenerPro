@@ -1,7 +1,9 @@
 package com.quinnnorris.ssm.controller;
 
+import com.quinnnorris.ssm.service.impl.SettingServiceImpl;
 import com.quinnnorris.ssm.util.SessionUtil;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -22,6 +24,9 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/homePage")
 public class HomePagesController {
+
+    @Autowired
+    SettingServiceImpl settingService;
 
     /**
      * 访问个人中心，只有每个用户本人才能访问到自己的个人中心
@@ -53,7 +58,7 @@ public class HomePagesController {
         if (SessionUtil.sessionHasNull(httpSession, "phone")
                 || !((String) (httpSession.getAttribute("phone"))).equals(phone))
             return "404";
-        //model
+        settingService.getUserInfo((String)httpSession.getAttribute("phone"),model);
         return "HomeBaseSetting";
     }
 
