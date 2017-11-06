@@ -14,7 +14,7 @@
     <div class="leftMenu">
         <div class="topMenu">
             <%--<img class="changeMenu" src="img/shouqicaidan.png" id="hidIcon"/>--%>
-            <img class="img-circle headpMenu" src="${pageContext.request.contextPath}/res/head/userheadp1.jpg" id="headpMenu" height="150px" width="150px"/>
+            <img class="img-circle headpMenu" src="${pageContext.request.contextPath}<%=session.getAttribute("headp")%>" id="headpMenu" height="150px" width="150px"/>
             <p class="menuTitle"></p>
         </div>
         <div class="menu_list">
