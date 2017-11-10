@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quinnnorris.ssm.mapper.WorkCustomMapper">
-
-    <select id="selectWorkerById" parameterType="WorkCustom" resultType="WorkCustom">
-        SELECT * FROM work WHERE work_id = #{work_id}
-    </select>
-
-</mapper>

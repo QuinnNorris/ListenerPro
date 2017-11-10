@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ListenerPro.iml" filepath="$PROJECT_DIR$/.idea/ListenerPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ListenerPro.iml" filepath="$PROJECT_DIR$/ListenerPro.iml" />
     </modules>
   </component>
 </project>
