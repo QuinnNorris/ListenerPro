@@ -3,6 +3,8 @@ package com.listener.mapper;
 import com.listener.bean.CompUsingCustom;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Title: CompUsingCustomMapper
  * Description: 关于映射comp_using表的所有数据操作
@@ -21,4 +23,5 @@ public interface CompUsingCustomMapper {
 
     public void insertWithIdAndCom_id(CompUsingCustom compUsingCustom);
 
+    public List<CompUsingCustom> selectWithIdAndUse_type(CompUsingCustom compUsingCustom);
 }

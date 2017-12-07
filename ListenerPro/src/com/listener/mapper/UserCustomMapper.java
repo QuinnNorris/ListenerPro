@@ -73,4 +73,6 @@ public interface UserCustomMapper {
      * @param userCustom 需要email，phone字段
      */
     public void insertUserEmail(UserCustom userCustom);
+
+    public void updateAllUser(UserCustom selectUser);
 }

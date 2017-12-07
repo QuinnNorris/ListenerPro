@@ -21,6 +21,8 @@ public class User {
     private Date regtime;
     private int usertype;
     private String email;
+    private String addr;
+    private String info;
 
     public int getId() {
         return id;
@@ -84,5 +86,21 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddr() {
+        return addr;
+    }
+
+    public void setAddr(String addr) {
+        this.addr = addr;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

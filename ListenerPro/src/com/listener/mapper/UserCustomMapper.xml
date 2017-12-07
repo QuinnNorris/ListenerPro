@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quinnnorris.ssm.mapper.UserCustomMapper">
+<mapper namespace="com.listener.mapper.UserCustomMapper">
 
     <select id="selectUserByPhoneAndPW" parameterType="UserCustom" resultType="UserCustom">
         SELECT * FROM user WHERE phone = #{phone} AND password = #{password}
@@ -13,6 +13,10 @@
     <insert id="insertUserReturnId" useGeneratedKeys="true" keyProperty="id" parameterType="UserCustom">
         INSERT INTO user (phone,password,username,headp,regtime,usertype) VALUE (#{phone},#{password},#{username},#{headp},#{regtime},#{usertype})
     </insert>
+
+    <update id="updateAllUser" parameterType="UserCustom">
+        UPDATE user SET username = #{username} , password = #{password} , email = #{email} , info = #{info}, addr = #{addr} WHERE id = #{id}
+    </update>
 
     <update id="updateUserHeadp" parameterType="UserCustom">
         UPDATE user SET headp = #{headp} WHERE phone = #{phone}

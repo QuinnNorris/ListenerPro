@@ -12,12 +12,13 @@ package com.listener.bean;
 public class Label {
 
     private int id;
+    private String phone;
     private int sex;
-    private String city;
+    private int city;
     private int age;
     private int work_id;
     private int fsex;
-    private String fcity;
+    private int fcity;
     private int fage;
     private int fwork_id;
     private String label1;
@@ -35,6 +36,14 @@ public class Label {
         this.id = id;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public int getSex() {
         return sex;
     }
@@ -43,12 +52,20 @@ public class Label {
         this.sex = sex;
     }
 
-    public String getCity() {
+    public int getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    public void setCity(int city) {
         this.city = city;
+    }
+
+    public int getFcity() {
+        return fcity;
+    }
+
+    public void setFcity(int fcity) {
+        this.fcity = fcity;
     }
 
     public int getAge() {
@@ -73,14 +90,6 @@ public class Label {
 
     public void setFsex(int fsex) {
         this.fsex = fsex;
-    }
-
-    public String getFcity() {
-        return fcity;
-    }
-
-    public void setFcity(String fcity) {
-        this.fcity = fcity;
     }
 
     public int getFage() {

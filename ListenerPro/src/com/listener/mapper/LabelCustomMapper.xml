@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quinnnorris.ssm.mapper.LabelCustomMapper">
+<mapper namespace="com.listener.mapper.LabelCustomMapper">
 
     <select id="selectLabelById" parameterType="LabelCustom" resultType="LabelCustom">
         SELECT * FROM label WHERE id = #{id}
     </select>
+
+    <select id="selectLabelByPhone" parameterType="LabelCustom" resultType="LabelCustom">
+        SELECT * FROM label WHERE phone = #{phone}
+    </select>
+
+    <insert id="insertOnlyIdAndPhone" parameterType="LabelCustom">
+        INSERT INTO label (id,phone,stars) VALUE (#{id},#{phone},5.0)
+    </insert>
 
     <insert id="insertSelfLabel" parameterType="LabelCustom">
         INSERT INTO label (id,sex,city,age,work_id,stars) VALUE (#{id},#{sex},#{city},#{age},#{work_id},5.0)

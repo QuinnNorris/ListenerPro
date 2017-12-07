@@ -22,40 +22,40 @@
                 <img src="../res/head/infos.jpg" class="img-circle">
             </div>
         </div>
-
+        <input type="hidden" id="actives" value="${active}"/>
         <ul class="nav">
-            <li class="active">
-                <a href="dashboard.html">
+            <li id="secretG">
+                <a href="/secretGarden">
                     <i class="ti-panel"></i>
                     <p>秘密花园</p>
                 </a>
             </li>
-            <li>
-                <a href="user.html">
+            <li id="listenerP">
+                <a href="/listener">
                     <i class="ti-user"></i>
                     <p>倾听者</p>
                 </a>
             </li>
-            <li>
-                <a href="table.html">
+            <li >
+                <a href="">
                     <i class="ti-view-list-alt"></i>
                     <p>治愈屋</p>
                 </a>
             </li>
-            <li>
-                <a href="typography.html">
+            <li id="healingP">
+                <a href="/healing">
                     <i class="ti-text"></i>
                     <p>飞鸟集</p>
                 </a>
             </li>
-            <li>
-                <a href="icons.html">
+            <li id="repairP">
+                <a href="/repair">
                     <i class="ti-pencil-alt2"></i>
                     <p>修补屋</p>
                 </a>
             </li>
-            <li>
-                <a href="maps.html">
+            <li id="settingP">
+                <a href="/setting">
                     <i class="ti-map"></i>
                     <p>万事屋</p>
                 </a>
@@ -69,3 +69,9 @@
         </ul>
     </div>
 </div>
+<script>
+    $(function () {
+      var act = $("#actives").val();
+      $("#"+act).attr('class','active');
+    })
+</script>

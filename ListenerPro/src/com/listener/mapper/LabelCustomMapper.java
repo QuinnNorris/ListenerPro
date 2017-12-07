@@ -27,4 +27,5 @@ public interface LabelCustomMapper {
 
     public void updateStars(LabelCustom labelCustom);
 
+    public LabelCustom selectLabelByPhone(LabelCustom labelCustom);
 }

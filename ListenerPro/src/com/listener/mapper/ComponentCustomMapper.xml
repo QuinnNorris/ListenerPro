@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quinnnorris.ssm.mapper.ComponentCustomMapper">
+<mapper namespace="com.listener.mapper.ComponentCustomMapper">
 
-    <insert id="insertComponent" useGeneratedKeys="true" keyProperty="com_id" parameterType="ComponentCustom">
-        INSERT INTO component (create_id,com_type,com_name,innertest,length,color)
-        VALUE (#{create_id},#{com_type},#{com_name},#{innertest},#{length},#{color})
+    <insert id="insertComponent" parameterType="ComponentCustom">
+        <selectKey resultType="int" order="AFTER" keyProperty="com_id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO component (create_id,com_type,com_name,length,color) VALUE (#{create_id},#{com_type},#{com_name},#{length},#{color})
     </insert>
+
+
+    <select id="selectCompBycom_idAndCreate_id" parameterType="ComponentCustom" resultType="ComponentCustom">
+        select * from component WHERE com_id = #{com_id} AND create_id = #{create_id};
+    </select>
 
 </mapper>

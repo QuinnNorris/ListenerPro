@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quinnnorris.ssm.mapper.CompUsingCustomMapper">
+<mapper namespace="com.listener.mapper.CompUsingCustomMapper">
 
     <insert id="insertWithIdAndCom_id" parameterType="CompUsingCustom">
         INSERT INTO comp_using VALUES (#{id},#{com_id},#{use_type})
@@ -13,5 +13,9 @@
     <update id="updateWithIdAndCom_id" parameterType="CompUsingCustom">
         UPDATE comp_using SET use_type = #{use_type} WHERE id = #{id} AND com_id = #{com_id}
     </update>
+
+    <select id="selectWithIdAndUse_type" parameterType="CompUsingCustom" resultType="CompUsingCustom">
+        select * from comp_using WHERE id = #{id} AND use_type = #{use_type};
+    </select>
 
 </mapper>

@@ -3,6 +3,8 @@ package com.listener.mapper;
 import com.listener.bean.WorkCustom;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Title: WorkCustomMapper
  * Description:
@@ -16,5 +18,9 @@ import org.springframework.stereotype.Repository;
 public interface WorkCustomMapper {
 
     public WorkCustom selectWorkerById(WorkCustom workCustom);
+
+    public void insertWorker(WorkCustom workCustom);
+
+    public List<String> selectAllInWork();
 
 }

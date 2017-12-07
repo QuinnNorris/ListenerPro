@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 @Repository("componentCustomMapper")
 public interface ComponentCustomMapper {
 
-    public ComponentCustom insertComponent(ComponentCustom componentCustom);
+    public int insertComponent(ComponentCustom componentCustom);
 
+    public ComponentCustom selectCompBycom_idAndCreate_id(ComponentCustom componentCustom);
 }

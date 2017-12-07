@@ -21,7 +21,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                        <p>晚上好，Quinn Norris</p>
+                        <p>${AMPM}，Quinn Norris</p>
                     </a>
                 </li>
                 <li class="dropdown">
